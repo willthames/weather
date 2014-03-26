@@ -12,7 +12,7 @@ function drawGraph(rows) {
 
     x.domain([format.parse(rows[0]["Date"]), 
               format.parse(rows[rows.length - 1]["Date"])]);
-    y.domain([0.01, d3.pow(d3.max(rows, function(d) { return +d["Rainfall (mm)"] }), 1.1)]);
+    y.domain([0.01, d3.scale.pow(d3.max(rows, function(d) { return +d["Rainfall (mm)"] }), 1.1)]);
 
     var svg = d3.select("#weather").append("svg:svg")
         .attr("width", width + m[1] + m[3])
