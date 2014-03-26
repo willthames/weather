@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8"/>
+<title>Brisbane Airport Graphs</title>
+<script src="http://d3js.org/d3.v2.js"></script>
+<script src="weather.js"></script>
+<link rel="stylesheet" href="d3.css">
+</head>
+<body>
+<div id="weather"></div>
+<script>
+var data;
+
+d3.csv("http://localhost:4001/brisaero/2012.csv", function(rows) { 
+    drawGraph(rows)
+});
+</script>
+</body>
+</html>
