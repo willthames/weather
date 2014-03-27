@@ -11,8 +11,8 @@ function drawGraph(rows, title, divid) {
         format = d3.time.format("%Y-%m-%d");
 
     x.domain([format.parse(rows[0]["Date"]), 
-              format.parse(rows[rows.length - 1]["Date"])]);
-    y.domain([0.01, Math.pow(d3.max(rows, function(d) { return +d["Rainfall (mm)"] }), 1.1)]);
+              new Date(format.parse(rows[0]["Date"]).getFullYear()+1, 0)])
+    y.domain([0.01, 300]);
 
     var svg = d3.select("#" + divid).append("svg:svg")
         .attr("width", width + m[1] + m[3])
