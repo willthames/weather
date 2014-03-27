@@ -53,3 +53,9 @@ tr.even {
   width: 400px;
   height: 400px;
 }
+
+.title { 
+  font-family: Verdana, Helvetica, sans;
+  font-weight: bold;
+  font-size: xx-large;
+}

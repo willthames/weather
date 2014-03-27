@@ -7,12 +7,13 @@ function drawGraph(rows) {
     var x = d3.time.scale().range([0,width]),
         y = d3.scale.log().range([height,0]),
         xAxis = d3.svg.axis().scale(x),
-        yAxis = d3.svg.axis().scale(y).orient("left"),
+        //yAxis = d3.svg.axis().scale(y).orient("left").tickFormat(d3.format('1d')).ticks(2),
+        yAxis = d3.svg.axis().scale(y).orient("left").ticks(5,d3.format('.0d')),
         format = d3.time.format("%Y-%m-%d");
 
     x.domain([format.parse(rows[0]["Date"]), 
               format.parse(rows[rows.length - 1]["Date"])]);
-    y.domain([0.01, d3.scale.pow(d3.max(rows, function(d) { return +d["Rainfall (mm)"] }), 1.1)]);
+    y.domain([0.01, Math.pow(d3.max(rows, function(d) { return +d["Rainfall (mm)"] }), 1.1)]);
 
     var svg = d3.select("#weather").append("svg:svg")
         .attr("width", width + m[1] + m[3])
@@ -23,13 +24,13 @@ function drawGraph(rows) {
     // line generator
     var line = d3.svg.line()
       .x(function(d) { return x(format.parse(d["Date"])); })
-      .y(function(d) { return y(d3.min(0.01,+d["Rainfall (mm)"])); })
+      .y(function(d) { return y(Math.max(0.01,d["Rainfall (mm)"])); })
 
     // An area generator, for the light fill.
     var area = d3.svg.area()
         .x(function(d) { return x(format.parse(d["Date"])); })
         .y0(height)
-        .y1(function(d) { return y(d3.min(0.01, +d["Rainfall (mm)"])); })
+        .y1(function(d) { return y(Math.max(0.01, +d["Rainfall (mm)"])); })
 
     // Add the area below the line
     svg.append("svg:path")
@@ -67,6 +68,14 @@ function drawGraph(rows) {
         .attr("text-anchor", "end")
         .attr("x", height)
         .attr("y", 0)
-        .attr("transform", "translate(-30," + height + " ) rotate(-90)")
+        .attr("transform", "translate(-30," + (height + 200) + " ) rotate(-90)")
         .text("Daily rainfall (mm)");
+
+    svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (m.top / 2))
+        .attr("text-anchor", "middle")  
+        .attr("class", "title")
+        .text("2012 Brisbane Airport rainfall (mm)");
 }
+
