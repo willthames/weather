@@ -1,4 +1,4 @@
-function drawGraph(rows) { 
+function drawGraph(rows, title) { 
 
     var height = 500, width = 800;
 
@@ -76,6 +76,6 @@ function drawGraph(rows) {
         .attr("y", 0 - (m.top / 2))
         .attr("text-anchor", "middle")  
         .attr("class", "title")
-        .text("2012 Brisbane Airport rainfall (mm)");
+        .text(title);
 }
 

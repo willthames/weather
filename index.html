@@ -12,7 +12,10 @@
 var data;
 
 d3.csv("brisaero/2012.csv", function(rows) { 
-    drawGraph(rows)
+    drawGraph(rows, "2012 Brisbane Airport rainfall (mm)")
+});
+d3.csv("brisaero/2013.csv", function(rows) { 
+    drawGraph(rows, "2013 Brisbane Airport rainfall (mm)")
 });
 </script>
 </body>
