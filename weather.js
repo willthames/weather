@@ -1,4 +1,4 @@
-function drawGraph(rows, title) { 
+function drawGraph(rows, title, divid) { 
 
     var height = 500, width = 800;
 
@@ -7,7 +7,6 @@ function drawGraph(rows, title) {
     var x = d3.time.scale().range([0,width]),
         y = d3.scale.log().range([height,0]),
         xAxis = d3.svg.axis().scale(x),
-        //yAxis = d3.svg.axis().scale(y).orient("left").tickFormat(d3.format('1d')).ticks(2),
         yAxis = d3.svg.axis().scale(y).orient("left").ticks(5,d3.format('.0d')),
         format = d3.time.format("%Y-%m-%d");
 
@@ -15,7 +14,7 @@ function drawGraph(rows, title) {
               format.parse(rows[rows.length - 1]["Date"])]);
     y.domain([0.01, Math.pow(d3.max(rows, function(d) { return +d["Rainfall (mm)"] }), 1.1)]);
 
-    var svg = d3.select("#weather").append("svg:svg")
+    var svg = d3.select("#" + divid).append("svg:svg")
         .attr("width", width + m[1] + m[3])
         .attr("height", height + m[0] + m[2])
       .append("svg:g")
@@ -77,5 +76,6 @@ function drawGraph(rows, title) {
         .attr("text-anchor", "middle")  
         .attr("class", "title")
         .text(title);
+
 }
 

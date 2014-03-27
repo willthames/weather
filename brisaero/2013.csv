@@ -1,3 +1,5 @@
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2013-01-1,19.6,30.2,0.8,7.2,8.9,NE,31,13:47,26.6,61,6,NE,13,1016.3,28.0,52,7,NE,22,1013.1
 ,2013-01-2,20.6,32.4,0,8.0,13.1,SSE,35,23:30,27.9,56,1,N,15,1011.4,31.2,54,1,NNE,22,1008.1
 ,2013-01-3,23.4,29.0,0,11.8,11.7,E,48,13:54,28.0,50,3,SE,22,1015.2,27.0,53,1,ESE,30,1013.2
 ,2013-01-4,21.7,28.6,0,10.8,12.1,ESE,39,13:16,26.5,52,5,SE,17,1016.1,27.2,45,2,ESE,20,1014.3
